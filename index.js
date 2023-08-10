@@ -202,6 +202,6 @@ const s = createServer(async (req, res) => {
     }
 });
 
-s.listen(5555, () => {
+s.listen(process.env.PORT || 5555, () => {
     console.log("HTTP SERVER running");
 });
