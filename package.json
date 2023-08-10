@@ -4,7 +4,7 @@
   "description": "",
   "main": "httpserver.js",
   "scripts": {
-    "start": "node ./httpserver.js"
+    "start": "node ./index.js"
   },
   "keywords": [],
   "author": "",

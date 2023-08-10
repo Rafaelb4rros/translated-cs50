@@ -111,7 +111,7 @@ const s = createServer(async (req, res) => {
         const param = isNaN(Number(req.url.slice(1))) ? req.url.slice(1) : Number(req.url.slice(1))
         fs.readFile("./public/lectures/" + param, {encoding: 'utf-8'}, function(err,data){
             if (!err) {
-                res.writeHead(200, {'Content-Type': 'text/plain'});
+                res.writeHead(200, {'Content-Type': 'text/plain','Cache-Control': 's-max-age=1, stale-while-revalidate'});
                 res.end(data);
             } else {
                 res.writeHead(404, {'Content-Type': 'text/plain'});
@@ -130,8 +130,7 @@ const s = createServer(async (req, res) => {
             return res.end(STATUS_CODES[404]);
         }
 
-        res.setHeader('Content-Type', 'text/html');
-        res.writeHead(200);
+        res.writeHead(200, {'Content-Type': 'text/html','Cache-Control': 's-max-age=1, stale-while-revalidate'});
         const url = lecture(param);
         return res.end(`
             <!DOCTYPE html>
@@ -173,9 +172,8 @@ const s = createServer(async (req, res) => {
             </body>
             `);
     } else if(req.url === "/") {
-        res.setHeader('Content-Type', 'text/html');
-        res.writeHead(200);
         const metadata = cache['metadata'];
+        res.writeHead(200, {'Content-Type': 'text/html','Cache-Control': 's-max-age=1, stale-while-revalidate'});
         const htmlLink = (lec) => `<li>${TITLES[LECTURES.indexOf(lec)]} <a href="${lec}">  Assistir</a></li>`
         return res.end(`
                 <!DOCTYPE html>
