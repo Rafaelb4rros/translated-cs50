@@ -1,0 +1,12 @@
+{
+  "name": "translated-edx",
+  "version": "1.0.0",
+  "description": "",
+  "main": "httpserver.js",
+  "scripts": {
+    "start": "node ./httpserver.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
