@@ -109,7 +109,7 @@ const s = createServer(async (req, res) => {
 
     if(req.url.includes("vtt")) {
         const param = isNaN(Number(req.url.slice(1))) ? req.url.slice(1) : Number(req.url.slice(1))
-        fs.readFile("./public/lectures/" + param, {encoding: 'utf-8'}, function(err,data){
+        fs.readFile("static/" + param, {encoding: 'utf-8'}, function(err,data){
             if (!err) {
                 res.writeHead(200, {'Content-Type': 'text/plain','Cache-Control': 's-max-age=1, stale-while-revalidate'});
                 res.end(data);
