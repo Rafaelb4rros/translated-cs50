@@ -196,9 +196,6 @@ const s = createServer(async (req, res) => {
                     </main>
                 </body>
             `);
-    } else {
-        res.writeHead(404, {'Content-Type': 'text/plain'});
-        res.end(STATUS_CODES[404]);
     }
 });
 
