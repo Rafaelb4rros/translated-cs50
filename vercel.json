@@ -2,7 +2,7 @@
   "version": 2,
   "cleanUrls": true,
   "builds": [
-    { "src": "/static/**", "use": "@vercel/static" },
+    { "src": "/static/*.vtt", "use": "@vercel/static" },
     {
       "src": "index.js",
       "use": "@now/node"
@@ -16,10 +16,6 @@
           "key": "Cache-Control",
           "value": "public, max-age=31556952, immutable"
         }
-    },
-    {
-      "src": "/",
-      "dest": "index.js"
     },
     {
       "src": "/:lec",
