@@ -8,7 +8,7 @@
   ],
   "routes": [
     {
-      "src": "/(?<id>[^/]*)",
+      "src": "/subt/(?<id>[^/]*)",
       "dest": "/static/$id"
     },
     {

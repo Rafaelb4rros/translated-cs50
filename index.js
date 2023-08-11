@@ -107,9 +107,9 @@ const s = createServer(async (req, res) => {
         } catch(err) {}
     }
 
-    if(req.url.includes("vtt")) {
+    if(req.url.startsWith("/static/") && req.url.includes("vtt")) {
         const param = isNaN(Number(req.url.slice(1))) ? req.url.slice(1) : Number(req.url.slice(1))
-        fs.readFile("static/" + param, {encoding: 'utf-8'}, function(err,data){
+        fs.readFile(param, {encoding: 'utf-8'}, function(err,data){
             if (!err) {
                 res.writeHead(200, {'Content-Type': 'text/plain','Cache-Control': 's-max-age=1, stale-while-revalidate'});
                 res.end(data);
@@ -157,14 +157,14 @@ const s = createServer(async (req, res) => {
                                 label="English"
                                 kind="subtitles"
                                 srclang="en"
-                                src="${param}.vtt"
+                                src="static/${param}.vtt"
                                 default>
                             </track>
                           <track
                                 label="Portuguese"
                                 kind="subtitles"
                                 srclang="pt-BR"
-                                src="pt-${param}.vtt"
+                                src="static/pt-${param}.vtt"
                                 default>
                             </track>
                     </video>
