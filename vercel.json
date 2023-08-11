@@ -8,15 +8,6 @@
     ],
     "routes": [
         {
-           "src": "/static/(.*)",
-           "headers": [
-                {
-                  "key": "Cache-Control",
-                  "value": "public, max-age=31556952, immutable"
-                }
-           ]
-        },
-        {
             "src": "/",
             "dest": "index.js"
         },
