@@ -12,7 +12,7 @@
             "dest": "index.js"
         },
         {
-            "src": "/:id",
+            "src": "/(?<id>[^/]*)/",
             "dest": "index.js"
         },
         {
