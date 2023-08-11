@@ -108,7 +108,8 @@ const s = createServer(async (req, res) => {
     }
 
     if(req.url.startsWith("/static/") && req.url.includes("vtt")) {
-        const param = isNaN(Number(req.url.slice(1))) ? req.url.slice(1) : Number(req.url.slice(1))
+        const p = req.url.slice(1).split("/")[1];
+        const param = isNaN(Number(p)) ? p : Number(p)
         fs.readFile(param, {encoding: 'utf-8'}, function(err,data){
             if (!err) {
                 res.writeHead(200, {'Content-Type': 'text/plain','Cache-Control': 's-max-age=1, stale-while-revalidate'});
