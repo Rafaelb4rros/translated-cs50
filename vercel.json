@@ -6,18 +6,13 @@
       "use": "@now/node"
     }
   ],
-    "functions": {
-        "/index.js": {
-            "includeFiles": "./static/**"
-        }
-    },
   "routes": [
     {
-      "src": "/static/(.*)",
-      "dest": "/static/$1"
+      "src": "/(?<id>[^/]*)",
+      "dest": "/static/$id"
     },
     {
-      "src": "/(.*)",
+      "src": "/",
       "dest": "index.js"
     }
   ]
