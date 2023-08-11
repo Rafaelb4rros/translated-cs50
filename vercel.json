@@ -6,6 +6,17 @@
           "use": "@now/node"
         }
     ],
+    "headers": [
+        {
+          "source": "/(.*)",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "s-maxage=2592000, stale-while-revalidate=59"
+            }
+          ]
+        }
+    ],
     "routes": [
         {
             "src": "/static/(?<id>[^/]*)",
