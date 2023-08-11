@@ -12,12 +12,12 @@
       "dest": "index.js"
     },
     {
-      "src": "/(?<id>[^/]",
+      "src": "/(?<id>[^/])",
       "dest": "index.js"
     },
     {
       "src": "/static/(?<id>[^/]*)",
-      "dest": "/$id"
+      "dest": "/static/$id"
     }
   ]
 }
