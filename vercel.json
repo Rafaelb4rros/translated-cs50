@@ -8,11 +8,11 @@
     ],
     "headers": [
         {
-          "source": "/(.*)",
+          "source": "index.js",
           "headers": [
             {
               "key": "Cache-Control",
-              "value": "s-maxage=2592000, stale-while-revalidate=59"
+              "value": "s-maxage=2592000, stale-while-revalidate=86400"
             }
           ]
         }
