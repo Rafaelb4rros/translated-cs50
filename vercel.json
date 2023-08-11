@@ -1,6 +1,13 @@
 {
   "version": 2,
+  "cleanUrls": true,
+   "functions": {
+    "static/**": {
+      "maxDuration": 1024 
+    }
+  },
   "builds": [
+    { "src": "*.vtt", "use": "@vercel/static" },
     {
       "src": "index.js",
       "use": "@now/node"
@@ -12,12 +19,12 @@
       "dest": "index.js"
     },
     {
-      "src": "/(?<id>[^/])",
+      "src": "/:lec",
       "dest": "index.js"
     },
     {
-      "src": "/static/(?<id>[^/]*)",
-      "dest": "/static/$id"
+      "src": "/static/:lec",
+      "dest": "/static/$lec"
     }
   ]
 }
