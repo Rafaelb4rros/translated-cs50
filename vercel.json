@@ -1,8 +1,6 @@
 {
-  "version": 2,
-  "cleanUrls": true,
   "builds": [
-    { "src": "/static/*", "use": "@vercel/static" },
+    { "src": "*.vtt", "use": "@vercel/static" },
     {
       "src": "index.js",
       "use": "@now/node"
@@ -10,7 +8,7 @@
   ],
   "routes": [
     {
-      "src": "/static/(.*)",
+       "src": "/static/(.*)",
        "headers": [
         {
           "key": "Cache-Control",
