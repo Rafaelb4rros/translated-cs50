@@ -131,7 +131,7 @@ const s = createServer(async (req, res) => {
             return res.end(STATUS_CODES[404]);
         }
 
-        res.writeHead(200, {'Content-Type': 'text/html','Cache-Control': 's-max-age=1, stale-while-revalidate'});
+        res.writeHead(200, {'Content-Type': 'text/html','Cache-Control': 's-max-age=99999, stale-while-revalidate'});
         const url = lecture(param);
         return res.end(`
             <!DOCTYPE html>
