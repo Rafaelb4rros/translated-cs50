@@ -1,19 +1,22 @@
 {
   "version": 2,
   "cleanUrls": true,
-   "functions": {
-    "static/**": {
-      "maxDuration": 1024 
-    }
-  },
   "builds": [
-    { "src": "*.vtt", "use": "@vercel/static" },
+    { "src": "/static/**", "use": "@vercel/static" },
     {
       "src": "index.js",
       "use": "@now/node"
     }
   ],
   "routes": [
+    {
+      "src": "/static/(.*)",
+       "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31556952, immutable"
+        }
+    },
     {
       "src": "/",
       "dest": "index.js"
@@ -24,7 +27,7 @@
     },
     {
       "src": "/static/:lec",
-      "dest": "/static/$lec"
+      "dest": "/static/:lec"
     }
   ]
 }
