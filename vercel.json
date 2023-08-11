@@ -8,12 +8,12 @@
   ],
   "routes": [
     {
-      "src": "/(.*)",
-      "dest": "index.js"
+      "src": "/",
+      "dest": "/"
     },
     {
-      "src": "/static/(?<id>[^/]*)",
-      "dest": "/static/$id"
+      "src": "/static/",
+      "dest": "/static/"
     }
   ]
 }
